@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>Mirai Math Release Notes</title><link rel="shortcut icon" href="img/mirai16x16.ico" type="image/x-icon" /></head>
+<body link="#3399cc" alink="#3399cc" vlink="#3399cc">
+
+<a href="http://mirai.sf.net"><img src="img/mirai62x62.png" width="62" height="62" border="0" alt="Mirai" /></a>&nbsp;
+<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=241783&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net" /></a><br>
+
+<br>
+<font color="#3399cc"><b>Release Notes</b></font><br>
+
+<blockquote>
+	<a href="#news">What is new in version 0.5?</a><br>
+	<a href="#known">Known issues of version 0.5</a><br>
+	<a href="#limits">Limitations of version 0.5</a><br>
+	<a href="#p3">Added in p3 release</a><br>
+	<a href="#p2">Added in p2 release</a><br>
+</blockquote>
+
+<font size=-1>Back to <a href="index.html">Index</a></font><br><br>
+
+<a name="news"></a>
+<font color="#3399cc"><b>What is new in version 0.5?</b></font> <br><br>
+
+Added Linux tar.gz package & installer; make, make install.<br>
+Menu support for internationalization, currently supported:<br>
+&nbsp; Czech, English, French, German, Japanese, Russian, Spanish.<br>
+Added connector/executor for GNU Octave 3.0.x engine.<br>
+Added support for Octave 2D plot / 3D mesh functions.<br>
+Added support for Octave quad() numerical integration.<br>
+Added coolbar with icons and icons into menu.<br>
+Added new function browser, with function detail.<br>
+Added workbook saving and workbook loading.<br>
+Proper clipboard copy / paste implemented.<br>
+Added ability to insert and delete formulas.<br><br>
+
+<a name="known"></a>
+<b><font color="#3399cc">Known issues of version 0.5 (b09)</font></b> <br><br>
+
+Slow boot of octave on windows (30+ sec) causes <br>
+&nbsp; that results are not shown until octave is ready.<br>
+On some linux distributions SWT Browser does not work<br>
+&nbsp; (as result help and function descriptions are unavailable).<br>
+Refresh problems sometimes occur on java1.5.<br><br>
+
+<a name="limits"></a>
+<b><font color="#3399cc">Limitations of version 0.5</font></b> <br><br>
+
+No ability to make selection and copy parts of formula, <br>
+&nbsp; neither by the mouse pointer nor by the keyboard. <br>
+No support for long formulas spanning multiple lines. <br>
+No proper rendering of matrices (due limitations of jmathtex).<br>
+Cannot define functions with multiple parameters.<br>
+No undo / redo.<br><br>
+
+<a name="p3"></a>
+<b><font color="#3399cc">Added in p3 release</font></b><br><br>
+
+Editing improvements [Up], [Down] cursor keys.<br>
+Added definitions for more jmathlib math functions,<br>
+&nbsp; basic statistics (mean, standard deviation, variance),<br>
+&nbsp; hyperbolic functions (sinh, cosh, tanh, asinh, ...).<br>
+Preliminary support for arrays, vectors and matrices.<br>
+Basic comparison and boolean operators functionality.<br>
+Added many math symbols to improve use as a TeX editor.<br>
+Alternative small icon tool-bars for low resolution devices.<br>
+Swing toolbars updated, in order to match SWT tool-bars.<br>
+Ability to paste TeX to other programs.<br>
+Ability to save workbook as html with images.<br>
+Ability to save formula as png image.<br><br>
+
+<a name="p2"></a>
+<b><font color="#3399cc">Added in p2 release</font></b><br><br>
+
+Toolbar implemented in SWT to avoid swt_awt bridge.<br>
+Resolved editing limitations for growing formula. <br>
+Improved input of fractions - e.g.: content of braces <font color="#3399cc">()</font> <br>
+&nbsp; before the cursor is added as numerator. <br>
+Keyboard function input, e.g. type <font color="#3399cc">sin(</font> to insert sine. <br>
+Keyboard symbol input, e.g. type <font color="#3399cc">pi [Esc]</font> to insert pi. <br>
+Added support for deleting content by [Delete] key. <br>
+Added save of text log and save to LaTeX format. <br>
+Added non-recursive sum and product. Bug-fixes.<br><br>
+
+
+<font size=-1>Back to <a href="index.html">Index</a></font><br><br>
+</body></html>

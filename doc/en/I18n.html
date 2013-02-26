@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>Mirai Math I18n Howto</title><link rel="shortcut icon" href="img/mirai16x16.ico" type="image/x-icon" /></head>
+<body link="#3399cc" alink="#3399cc" vlink="#3399cc">
+
+<a href="http://mirai.sf.net"><img src="img/mirai62x62.png" width="62" height="62" border="0" alt="Mirai" /></a>&nbsp;
+<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=241783&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net" /></a><br>
+
+<br>
+<font color="#3399cc"><b>Internationalization Howto</b></font><br>
+
+<blockquote>
+	<a href="#about">About i18n</a><br>
+	<a href="#linux">Prerequisities Linux</a><br>
+	<a href="#windows">Prerequisities Windows</a><br>
+	<a href="#create">Create/update i18n</a><br>
+	<a href="#submit">Submit new/updated i18n</a><br>
+</blockquote>
+
+<font size=-1>Back to <a href="index.html">Index</a></font><br><br>
+
+<a name="i18n"></a>
+<font color="#3399cc"><b>About i18n</b></font>
+<br><br>
+
+18 stands for intermediate letters of word internationalization.<br>
+An advanced user should be capable to perform this task. <br>
+No computer programming knowledge is required. This howto <br>
+assumes that program is already installed on the system.<br><br>
+
+<br>
+<a name="linux"></a>
+<font color="#3399cc"><b>Prerequisities Linux</b></font>
+<br><br>
+
+In linux, most necesary packages were added during installation.<br> 
+In addition localization application such as <font color="#3399cc">poedit</font> is required.<br><br>
+
+Extract source distribution tar.gz and run:<br>
+<font color=red>cd miraimath-0.5<br>
+ant</font><br><br>
+
+<br>
+<a name="windows"></a>
+<font color="#3399cc"><b>Prerequisities Windows</b></font>
+<br><br>
+
+To build resource boundle in windows following is necesary.<br><br>
+
+Poedit <a href="http://www.poedit.net/" rel="nofollow" target="n1_blank">http://www.poedit.net/</a><br>
+Download and install latest windows distribution.<br>
+At time of writing it was <font color=red>poedit-1.4.2-setup.exe</font>.<br><br>
+
+Apache Ant <a href="http://ant.apache.org/" rel="nofollow" target="n2_blank">http://ant.apache.org/</a><br>
+Select 'Download > Binary Distributions'. Choose binary zip. <br>
+At time of writing it was <font color=red>apache-ant-1.7.1-bin.zip</font>.<br>
+Unzip archive to '<font color=red>C:\Program Files</font>'.<br><br>
+
+GetText <a href="http://gnuwin32.sourceforge.net/" rel="nofollow" target="n3_blank">http://gnuwin32.sourceforge.net/</a><br>
+'Select Packages > GetText' download and install<br>
+'Complete package, except sources' 'Setup'<br>
+At time of writing version was <font color=red>gettext-0.14.4.exe</font>.<br><br>
+
+Add both applications to <font color="#3399cc">PATH</font><br>
+'Control Panel > System > Advanced > Environment Variables'<br>
+In User variables Select PATH and press Edit button.<br>
+Add path elements to your gettext and ant binaries (eg):<br>
+'<font color=red>C:\progra~1\GnuWin32\bin;C:\progra~1\apache-ant-1.7.1\bin;...</font>'<br>
+Actual paths might vary depending on your installation.<br><br>
+
+Start new Command Prompt and type:<br>
+<font color=red>msgfmt --help</font><br>
+Help Screen appears.<br>
+<font color=red>ant --help</font><br>
+Help Screen appears.<br><br>
+
+Unzip source distribution to a work folder.<br><br>
+
+<br>
+<a name="create"></a>
+<font color="#3399cc"><b>Create/update i18n</b></font>
+<br><br>
+
+Now you can edit i18n files. Location files are located at:<br>
+miraimath-0.5/mirai/src/cz/natur/cuni/mirai/math/editor/locale/<br><br>
+
+To create new localization copy one of Message files such as<br>
+Messages_en.po to new file. Use two letter language code <br>
+of desired language. List of codes can be found here:<br>
+<a href="http://www.loc.gov/standards/iso639-2/php/English_list.php" rel="nofollow" target="n4_blank"
+>http://www.loc.gov/standards/iso639-2/php/English_list.php</a><br><br>
+
+Now open localization file in poedit and make translation.<br><br>
+
+To build locale run (use your language code instead of en):<br>
+<font color=red>
+cd miraimath-0.5<br>
+ant -Dlang=en</font><br><br>
+
+Once built, backup original miraimath jar and copy new jar<br> 
+file to mirai installation location. Program loads locale<br> 
+according your system settings.<br><br>
+
+<br>
+<a name="submit"></a>
+<font color="#3399cc"><b>Submit new/updated i18n</b></font>
+<br><br>
+
+First please zip Messages_??.po file. This is important to <br>
+prevent damage of country specific characters encoded in <br>
+utf-8 file. Then submit as a patch to mirai bugzilla.<br><br>
+
+
+<font size=-1>Back to <a href="index.html">Index</a></font><br><br>
+</body></html>
+

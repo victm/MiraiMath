@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This file was written by Mirai -
+     http://mirai.sourceforge.net -->
+<MiraiMath ver="0.5">
+  <Formula>r=0:0.1:5;</Formula>
+  <Formula>[xx,yy]=meshgrid(r,r);</Formula>
+  <Formula>mesh(r,r,frac(sin(xx^(2)+yy^(2)),sqrt(xx^(2)+yy^(2))))</Formula>
+  <Formula></Formula>
+</MiraiMath>

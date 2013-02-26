@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This file was written by Mirai -
+     http://mirai.sourceforge.net -->
+<MiraiMath ver="0.5">
+  <Formula>2*int(-1,1,sqrt(1-x^(2)),x)</Formula>
+  <Label>ans =  3.1416</Label>
+  <Formula>s_(x)=sqrt(frac(sum(i,1,n,(x_({i})-1)^(2)),n))</Formula>
+</MiraiMath>

@@ -1,0 +1,15 @@
+The JMathTeX library is Copyright 2004-2007 Universiteit Gent 
+and is licensed under the terms of the GNU General Public License - see the file
+LICENSE.txt.
+
+Original developer: Kurt Vermeulen
+Current developers: Kris Coolsaet
+                    Nicolas Van Cleemput
+
+Research Group CAAGT
+Department of Applied Mathematics and Computer Science
+Ghent University
+Krijgslaan 281-S9
+B-9000 GENT
+Belgium
+

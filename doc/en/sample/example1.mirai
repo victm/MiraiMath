@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This file was written by Mirai -
+     http://mirai.sourceforge.net -->
+<MiraiMath ver="0.5">
+  <Formula>function(f,x,frac((4*x^(3)-6*x^(2)+1)*sqrt(x+1),3-x))</Formula>
+  <Formula>x=-1:0.05:1.5;</Formula>
+  <Formula>plot(x,f(x))</Formula>
+  <Formula></Formula>
+</MiraiMath>

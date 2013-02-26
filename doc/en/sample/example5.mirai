@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This file was written by Mirai -
+     http://mirai.sourceforge.net -->
+<MiraiMath ver="0.5">
+  <Formula>x=0:0.05:6.3;</Formula>
+  <Formula>function(cos_(approx),x,sum(n,0,9,frac((-1)^(n)*x^(2*n),factorial(2*n))))</Formula>
+  <Formula>plot(x,cos_(approx)(x))</Formula>
+  <Formula>figure</Formula>
+  <Formula>function(sin_(approx),x,sum(n,0,9,frac((-1)^(n)*x^(2*n+1),factorial(2*n+1))))</Formula>
+  <Formula>plot(x,sin_(approx)(x))</Formula>
+</MiraiMath>

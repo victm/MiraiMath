@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This file was written by Mirai -
+     http://mirai.sourceforge.net -->
+<MiraiMath ver="0.5">
+  <Formula>c=299792458;</Formula>
+  <Formula>m_(n)=1.6749*10^(-27);</Formula>
+  <Formula>m_(p)=1.6726*10^(-27);</Formula>
+  <Formula>N_(A)=6.0221*10^(23);</Formula>
+  <Formula>m_(He)=frac(4.0026*10^(-3),N_(A))</Formula>
+  <Label>mHe =  6.6465e-27</Label>
+  <Formula>m=2*m_(n)+2*m_(p)-m_(He)</Formula>
+  <Label>m =  4.8481e-29</Label>
+  <Formula>E=m*c^(2)</Formula>
+  <Label>E =  4.3573e-12</Label>
+  <Formula></Formula>
+</MiraiMath>

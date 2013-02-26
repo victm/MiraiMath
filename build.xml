@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Mirai Math 0.5 (b12)" default="all" basedir="."> 
+
+	<property name="name" value="miraimath"/>
+	<property name="ver" value="0.5"/>
+
+	<property name="destdir" value="/usr"/>
+	<property name="bin" value="${destdir}/bin"/>
+	<property name="jar" value="${destdir}/share/java"/>
+	<property name="doc" value="${destdir}/share/doc"/>
+	<property name="icons" value="${destdir}/share/icons"/>
+	<property name="kde" value="${destdir}/share/applications"/>
+	<property name="lang" value="ja"/>
+
+	<target name="all">
+		<echo message="Cleaning ..." />
+		<delete dir="dist" />
+
+		<echo message="Searching for octave ..." />
+		<exec executable="which" outputproperty="octave" failonerror="yes">
+			<arg value="octave"/>
+		</exec>
+		<echo message="   octave=${octave}" />
+		<echo message="Searching for swt.jar ..." />
+		<exec executable="build-classpath" outputproperty="swt" failonerror="yes">
+			<arg value="swt"/>
+		</exec>
+		<echo message="   swt=${swt}" />
+		<echo message="Searching for jdom.jar ..." />
+		<exec executable="build-classpath" outputproperty="jdom" failonerror="yes">
+			<arg value="jdom"/>
+		</exec>
+		<echo message="   jdom=${jdom}" />
+		<echo message=" " />
+
+		<echo message="Configured dirs (for script and menu)" />
+		<echo message="   bin=${bin}" />
+		<echo message="   jar=${jar}" />
+		<echo message="   doc=${doc}" />
+		<echo message="   icons=${icons}" />
+		<echo message="   kde=${kde}" />
+		<echo message=" " />
+
+		<mkdir dir="dist/classes" />
+
+		<echo message="Building Locales ..." />
+		<msgfmt lang="en" />
+		<msgfmt lang="es" />
+		<msgfmt lang="de" />
+		<msgfmt lang="fr" />
+		<msgfmt lang="cs" />
+		<msgfmt lang="ru" />
+		<msgfmt lang="ja" />
+		<msgfmt lang="${lang}" />
+
+		<echo message="Building classes ..." />
+		<javac srcdir="jmathtex/src" destdir="dist/classes" 
+			classpath="${jdom}:${swt}" target="1.5" debug="on" failonerror="yes"/>
+		<javac srcdir="mirai/src" destdir="dist/classes" 
+			classpath="${jdom}:${swt}" target="1.5" debug="on" failonerror="yes"/>
+		<copy todir="dist/classes">
+			<fileset dir="jmathtex/src" includes="**/*.ttf, **/*.xml" />
+			<fileset dir="mirai/src" includes="**/*.png, **/*.gif, **/*.xml" />
+		</copy>
+		<jar destfile="dist/${name}-${ver}.jar" basedir="dist/classes" />
+
+		<echo message="Generating script and menu item ..." />
+		<echo file="dist/mmoctave"><![CDATA[#!/bin/sh
+CP=${jdom}:${swt}:${jar}/${name}-${ver}.jar
+java -cp "$CP" cz.natur.cuni.mirai.math.editor.swt.MiraiMath --octave ${octave} --doc ${doc}/${name}-${ver}
+]]></echo>
+		<echo file="dist/mmoctave.desktop"><![CDATA[[Desktop Entry]
+Name=MiraiMath
+Comment=Frontend for Octave 3.0
+TryExec=${bin}/mmoctave
+Exec=${bin}/mmoctave
+Icon=${icons}/large/${name}.png
+Terminal=false
+Type=Application
+Categories=Math;Science;Education;
+StartupNotify=false
+]]></echo>
+		<echo file="dist/mmoctave-doc.desktop"><![CDATA[[Desktop Entry]
+Name=MiraiMath Doc
+Comment=Frontend for Octave 3.0
+TryExec=firefox
+Exec=firefox /usr/share/doc/miraimath-0.5/en/index.html
+Icon=/usr/share/icons/large/miraimath.png
+Terminal=false
+Type=Application
+Categories=Documentation;
+StartupNotify=false
+]]></echo>
+	</target>
+
+	<target name="install">
+		<echo message="Configured paths (for install)" />
+		<echo message="   bin=${bin}" />
+		<echo message="   jar=${jar}" />
+		<echo message="   doc=${doc}" />
+		<echo message="   icons=${icons}" />
+		<echo message="   kde=${kde}" />
+		<echo message=" " />
+
+		<echo message="Copying ..." />
+		<copy file="dist/${name}-${ver}.jar" tofile="${jar}/${name}-${ver}.jar" overwrite="yes" failonerror="yes"/>
+		<exec executable="ln">
+			<arg value="-s"/><arg value="${jar}/${name}-${ver}.jar"/><arg value="${jar}/${name}.jar" />
+		</exec>
+
+		<mkdir dir="${bin}" />
+		<copy file="dist/mmoctave" todir="${bin}" overwrite="yes" failonerror="yes"/>
+		<chmod dir="${bin}/mmoctave" perm="ugo+rx" />
+
+		<mkdir dir="${icons}" />
+		<copy file="ico/mirai32x32.png" tofile="${icons}/${name}.png" overwrite="yes" failonerror="yes"/>
+		<copy file="ico/mirai48x48.png" tofile="${icons}/large/${name}.png" overwrite="yes" failonerror="yes"/>
+
+		<mkdir dir="${kde}" />
+		<copy file="dist/mmoctave.desktop" todir="${kde}" overwrite="yes" failonerror="yes"/>
+		<copy file="dist/mmoctave-doc.desktop" todir="${kde}" overwrite="yes" failonerror="yes"/>
+
+		<mkdir dir="${doc}/${name}-${ver}" />
+		<copy todir="${doc}/${name}-${ver}" overwrite="yes" failonerror="yes">
+			<fileset dir="doc" />
+		</copy>
+		<mkdir dir="${doc}/${name}-${ver}/license/jmathtex" />
+		<copy todir="${doc}/${name}-${ver}" overwrite="yes" failonerror="yes">
+			<fileset dir="jmathtex" includes="*.txt" />
+		</copy>
+		<mkdir dir="${doc}/${name}-${ver}/license/mirai" />
+		<copy todir="${doc}/${name}-${ver}" overwrite="yes" failonerror="yes">
+			<fileset dir="mirai" includes="*.txt" />
+		</copy>
+	</target>
+
+	<target name="uninstall">
+		<delete file="${jar}/${name}.jar" />
+		<delete file="${jar}/${name}-${ver}.jar" />
+
+		<delete file="${bin}/mmoctave" />
+
+		<delete file="${icons}/${name}.png" />
+		<delete file="${icons}/large/${name}.png" />
+
+		<delete file="${kde}/mmoctave.desktop" />
+		<delete file="${kde}/mmoctave-doc.desktop" />
+
+		<delete dir="${doc}/${name}-${ver}" />
+	</target>
+
+	<target name="msgfmt">
+		<msgfmt lang="${lang}" />
+	</target>
+
+	<macrodef name="msgfmt">
+		<attribute name="lang" default="NOT SET"/>
+		<attribute name="dest" default="dist/classes"/>
+		<sequential>
+			<echo>Building @{lang} locale ...</echo>
+			<exec executable="msgfmt" failonerror="yes">
+				<arg value="--java2"/><arg value="-d"/><arg value="@{dest}"/>
+				<arg value="-l"/><arg value="@{lang}"/><arg value="-r" />
+				<arg value="cz.natur.cuni.mirai.math.editor.locale.Messages"/>
+				<arg value="mirai/src/cz/natur/cuni/mirai/math/editor/locale/Messages_@{lang}.po"/>
+			</exec>
+	   </sequential>
+	</macrodef>
+
+	<target name="clean">
+		<echo message="Cleaning ..." />
+		<delete dir="dist" />
+	</target>
+</project>

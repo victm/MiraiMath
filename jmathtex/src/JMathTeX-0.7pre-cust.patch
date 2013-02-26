@@ -1,0 +1,79 @@
+diff -Naur be/ugent/caagt/jmathtex/DefaultTeXFont.java ../cust/be/ugent/caagt/jmathtex/DefaultTeXFont.java
+--- be/ugent/caagt/jmathtex/DefaultTeXFont.java	2007-05-01 22:47:56.000000000 +0200
++++ ../cust/be/ugent/caagt/jmathtex/DefaultTeXFont.java	2008-10-02 15:22:33.000000000 +0200
+@@ -35,7 +35,7 @@
+  * The default implementation of the TeXFont-interface. All font information is read
+  * from an xml-file.
+  */
+-class DefaultTeXFont implements TeXFont {
++public class DefaultTeXFont implements TeXFont {
+     
+     private static String[] defaultTextStyleMappings;
+     
+@@ -59,6 +59,9 @@
+     protected static final int WIDTH = 0, HEIGHT = 1, DEPTH = 2, IT = 3;
+     
+     static {
++    	
++		System.out.println("Initializing JMathTeX http://jmathtex.sf.net\n");
++
+         DefaultTeXFontParser parser = new DefaultTeXFontParser();
+         // general font parameters
+         parameters = parser.parseParameters();
+@@ -85,6 +88,12 @@
+     
+     private final float size; // standard size
+     
++    public static Font getFont(int fontId) {
++        FontInfo info = fontInfo[fontId];
++        Font font = info.getFont();
++        return font;
++    }
++
+     public DefaultTeXFont(float pointSize) {
+         size = pointSize;
+     }
+diff -Naur be/ugent/caagt/jmathtex/TeXFormula.java ../cust/be/ugent/caagt/jmathtex/TeXFormula.java
+--- be/ugent/caagt/jmathtex/TeXFormula.java	2007-05-01 22:47:56.000000000 +0200
++++ ../cust/be/ugent/caagt/jmathtex/TeXFormula.java	2008-10-02 15:22:33.000000000 +0200
+@@ -926,7 +926,7 @@
+    /*
+     * Convert this TeXFormula into a box, starting form the given style
+     */
+-    private Box createBox(TeXEnvironment style) {
++    Box createBox(TeXEnvironment style) {
+         if (root == null)
+             return new StrutBox(0, 0, 0, 0);
+         else
+diff -Naur be/ugent/caagt/jmathtex/TeXIcon.java ../cust/be/ugent/caagt/jmathtex/TeXIcon.java
+--- be/ugent/caagt/jmathtex/TeXIcon.java	2007-05-01 22:47:56.000000000 +0200
++++ ../cust/be/ugent/caagt/jmathtex/TeXIcon.java	2008-10-02 15:22:33.000000000 +0200
+@@ -50,10 +50,11 @@
+ public class TeXIcon implements Icon {
+ 
+    private Box box;
++   private TeXEnvironment environment = null;
+ 
+    private final float size;
+ 
+-   private Insets insets = new Insets(0, 0, 0, 0);
++   private Insets insets = new Insets(1, 1, 1, 1);
+ 
+    /**
+     * Creates a new icon that will paint the given formula box in the given point size.
+@@ -66,6 +67,15 @@
+       this.size = size;
+    }
+ 
++   public TeXIcon(int style, float scale) {
++	  environment = new TeXEnvironment(style, new DefaultTeXFont(scale));
++	  this.size = scale;
++   }
++
++   public void setTeXFormula(TeXFormula formula) {
++	  box = formula.createBox(environment);
++   }
++
+    /**
+     * Get the insets of the TeXIcon.
+     * 

@@ -1,0 +1,27 @@
+
+Please make sure that ALL following 
+packages are installed on your system:
+
+    ant-1.6+ *
+    eclipse-swt-3.4+
+    java-1.5+ **       (openjre or sunjre; 5 or 6)
+    java-1.5+-dev * ** (openjdk or sunjdk; 5 or 6)
+    jdom-1.0+
+    octave-3.0.x
+
+* Needed at compile time only (not required to run).
+
+** If you are building binary packages (rpm/deb) use java 5!
+   (It makes msgfmt compiled classes java 5 compatible
+   Might be difficult if whole distro is built with java 6).
+
+
+Extract archive:
+    $ tar -jxvf miraimath-0.5-src.tar.bz2
+
+Compile and install:
+    $ make
+    $ sudo make install
+
+Run miraimath from menu or from commandline:
+    $ mmoctave

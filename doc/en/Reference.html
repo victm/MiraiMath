@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>Mirai Math Reference</title><link rel="shortcut icon" href="img/mirai16x16.ico" type="image/x-icon" />
+<script language="javascript" type="text/javascript">
+<!--
+function popitup(url) {
+	newwindow=window.open(url,'name','height=200,width=300');
+	if (window.focus) {newwindow.focus()}
+	return false;
+}
+// -->
+</script>
+</head>
+<body link="#3399cc" alink="#3399cc" vlink="#3399cc">
+
+<a href="http://mirai.sf.net"><img src="img/mirai62x62.png" width="62" height="62" border="0" alt="Mirai" /></a>&nbsp;
+<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=241783&amp;type=5" width="210" height="62" border="0" alt="SourceForge.net" /></a><br>
+
+<br>
+<font color="#3399cc"><b>Table of contents<br></b></font>
+
+<blockquote>
+	<a href="#natural">Natural input</a><br>
+	<a href="#toolbar">Toolbar input</a><br>
+	&nbsp; &nbsp; &nbsp; <a href="#general">General</a><br>
+	&nbsp; &nbsp; &nbsp; <a href="#operators">Operators</a><br>
+	&nbsp; &nbsp; &nbsp; <a href="#symbols">Symbols</a><br>
+	&nbsp; &nbsp; &nbsp; <a href="#functions">Functions</a><br>
+	<a href="#copytex">Copy TeX to Wiki</a><br>
+	<a href="#pdflatex">Create pdf from TeX</a><br>
+	<a href="#encoding">Note on file encoding</a><br>
+</blockquote>
+
+<font size=-1>Back to <a href="index.html">Index</a></font><br><br>
+
+<a name="natural"></a>
+<font color="#3399cc"><b>Natural Input<br></b></font><br>
+
+Natural input aims to allow formula input in the same<br> 
+way as it would be done in text mode, in an attempt to <br>
+achieve maximum effectiveness of input.<br><br>
+
+<img align="bottom" alt="Natural Input" height="38" src="img/Ov0.png" title="Free Type Mode" width="550"><br><br>
+
+Type the formula using characters, numbers and symbols.<br> 
+Use [Home], [End], [Up], [Down], [&lt;-], [-&gt;] cursor keys.<br><br>
+
+<table border="0" cellpadding="5" cellspacing="0">
+<tr><td><font color=red size=-1>* / + -</font></td><td><font size=-1>operators</font></td></tr>
+<tr><td><br></td><td><br></td></tr>
+<tr><td><font color=red size=-1>\</font></td><td><font size=-1>for fraction</font></td></tr>
+<tr><td><font color=red size=-1>^</font></td><td><font size=-1>for power</font></td></tr>
+<tr><td><font color=red size=-1>_</font></td><td><font size=-1>for subscript</font></td></tr>
+<tr><td><br></td><td><br></td></tr>
+<tr><td><font color=red size=-1>{</font></td><td><font size=-1>insert empty array</font></td></tr>
+<tr><td><font color=red size=-1>[</font></td><td><font size=-1>insert empty vector</font></td></tr>
+<tr><td><br></td><td><br></td></tr>
+<tr><td><font size=-1>[F1]</td><td><font size=-1>for general toolbar</font></td></tr>
+<tr><td><font size=-1>[F2]</td><td><font size=-1>for operator toolbar</font></td></tr>
+<tr><td><font size=-1>[F3]</td><td><font size=-1>for symbol toolbar</font></td></tr>
+<tr><td><font size=-1>[F4]</td><td><font size=-1>for function toolbar</font></td></tr>
+<tr><td><br></td><td><br></td></tr>
+<tr><td><font size=-1>[Backspace]</td><td><font size=-1>remove content before cursor</font></td></tr>
+<tr><td><font size=-1>[Delete]</td><td><font size=-1>remove content after cursor</font></td></tr>
+<tr><td><br></td><td><br></td></tr>
+<tr><td><font size=-1>[Enter]</td><td><font size=-1>to evaluate expression</font></td></tr>
+<tr><td><font size=-1>[Up], [Down]</font></td><td><font size=-1>to select a formula</font></td></tr>
+</table>
+<br>
+
+<a name="toolbar"></a>
+<font color="#3399cc"><b>Toolbar Input<br></b></font><br>
+
+Toolbar input represents opposite concept to natural input.<br>
+It aims to allow the most intuitive, though still comfortable<br>
+input for less experienced users and children.<br><br>
+
+<a name="general"></a>
+<br><font color="#3399cc">General<br></font><br>
+
+Toolbar is activated by [F1]. Use cursor keys and <br>
+[Enter] to select symbol. Press [F1] for next tab.<br><br>
+
+<table border="0" cellpadding="5" cellspacing="0">
+<tr><td><img width="16" height="16" src="img/general/power.png" /></td><td><font color=red size=-1>^n</font><font size=-1> - power</font></td></tr>
+<tr><td><img width="23" height="16" src="img/general/sqrt.png" /></td><td><font color=red size=-1>sqrt(x)</font><font size=-1> - square root</font></td></tr>
+<tr><td><img width="23" height="16" src="img/general/nroot.png" /></td><td><font color=red size=-1>nthroot(x, n)</font><font size=-1> - nth root</font></td></tr>
+<tr><td><img width="16" height="16" src="img/general/factorial.png" /></td><td><font color=red size=-1>factorial(x)</font><font size=-1> - n factorial</font></td></tr>
+</table>
+<br>
+
+Functions that follow are meta functions. These are math <br>
+functions, that are not easily expressible in terms of octave <br>
+vocabulary. These are emulated by combining multiple<br>
+octave commands or defining new runtime functions.<br><br>
+
+<table border="0" cellpadding="5" cellspacing="0">
+<tr><td><img width="16" height="16" src="img/general/sub.png" /></td><td><font color=red size=-1>_i</font><font size=-1> - subscript</font></td></tr>
+<tr><td><img width="12" height="16" src="img/general/frac.png" /></td><td><font color=red size=-1>frac(x, y)</font><font size=-1> - fraction</font></td></tr>
+<tr><td><img width="37" height="16" src="img/general/sum.png" /></td><td><font color=red size=-1>sum(v, fm, to, x)</font><font size=-1> - sum</font></td></tr>
+<tr><td><img width="35" height="16" src="img/general/prod.png" /></td><td><font color=red size=-1>prod(v, fm, to, x)</font><font size=-1> - product</font></td></tr>
+<tr><td><img width="31" height="16" src="img/general/int.png" /></td><td><font color=red size=-1>int(fm, to, x, v)</font><font size=-1> - numerical integration / quadrature</font></td></tr>
+<tr><td><img width="28" height="16" src="img/general/_nint.png" /></td><td><font color=blue size=-1>nint(x, v)</font><font size=-1> - integration - </font><font color=blue size=-1>no implementation - TeX only</font></td></tr>
+<tr><td><img width="31" height="16" src="img/general/_lim.png" /></td><td><font color=blue size=-1>lim(v, to, x)</font><font size=-1> - limit of function - </font><font color=blue size=-1>no implementation - TeX only</font></td></tr>
+<tr><td><img width="28" height="16" src="img/general/function.png" /></td><td><font color=red size=-1>function(name, v, x)</font><font size=-1> - math function definition</font></td></tr>
+</table>
+<br>
+
+<font color=blue size=-1>Functions shown blue have no implementation - to be used with TeX only.</font><br><br>
+
+<a name="operators"></a>
+<br><font color="#3399cc">Operators<br></font><br>
+
+Toolbar is activated by [F2]. Use cursor keys and <br>
+[Enter] to select symbol. Press [F1] for next tab.<br><br>
+
+<table border="0" cellpadding="6" cellspacing="0">
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/minus.png" /> a-b</font></td><td><font size=-1><img width="16" height="16" src="img/operators/lt.png" /> a&lt;b</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_subset.png" /> subset [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_leftarrow.png" /> leftarrow [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/plus.png" /> a+b</font></td><td><font size=-1><img width="16" height="16" src="img/operators/gt.png" /> a>b</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_supset.png" /> supset [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_rightarrow.png" /> rightarrow [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/cdot.png" /> a*b</font></td><td><font size=-1><img width="16" height="16" src="img/operators/leq.png" /> leq [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_subseteq.png" /> subseteq [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_leftrightarrow.png" /> leftrightarrow [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/sl.png" /> a/b</font></td><td><font size=-1><img width="16" height="16" src="img/operators/geq.png" /> geq [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_supseteq.png" /> supseteq [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_notrightarrow.png" /> notrightarrow [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/times.png" /> times [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_ll.png" /> ll [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_cup.png" /> cup [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_notleftrightarrow.png" /> notleftrightarrow [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/div.png" /> div [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_gg.png" /> gg [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_cap.png" /> cap [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/eq.png" /> a=b</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_sim.png" /> sim [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_in.png" /> in [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/ne.png" /> ne [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_approx.png" /> approx [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_empty.png" /> empty [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/_equiv.png" /> equiv [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_simeq.png" /> simeq [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_pm.png" /> pm [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/operators/neg.png" /> neg [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_propto.png" /> propto [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/operators/_prime.png" /> prime [Esc]</font></td></tr>
+</table>
+<br>
+
+<font color=blue size=-1>Operators shown blue have no implementation - to be used with TeX only.</font><br><br>
+
+<a name="symbols"></a>
+<br><font color="#3399cc">Symbols<br></font><br>
+
+Toolbar is activated by [F3]. Use cursor keys and <br>
+[Enter] to select symbol. Press [F1] for next tab.<br><br>
+
+<table border="0" cellpadding="6" cellspacing="0">
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/inf.png" /> inf [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/varth.png" /> varth [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/sigma.png" /> sigma [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Lambda.png" /> Lambda [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/ii.png" /> ii [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/iota.png" /> iota [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/varsigma.png" /> varsigma [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Xi.png" /> Xi [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/jj.png" /> jj [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/kappa.png" /> kappa [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/tau.png" /> tau [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Pi.png" /> Pi [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/alpha.png" /> alpha [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/lambda.png" /> lambda [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/upsilon.png" /> upsilon [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Sigma.png" /> Sigma [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/beta.png" /> beta [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/mu.png" /> mu [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/phi.png" /> phi [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Upsilon.png" /> Upsilon [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/gamma.png" /> gamma [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/nu.png" /> nu [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/varphi.png" /> varphi [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Phi.png" /> Phi [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/delta.png" /> delta [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/xi.png" /> xi [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/chi.png" /> chi [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Psi.png" /> Psi [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/epsilon.png" /> epsilon [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/omicron.png" /> omicron [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/psi.png" /> psi [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Omega.png" /> Omega [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/vareps.png" /> vareps [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/pi.png" /> pi [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/omega.png" /> omega [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/nabla.png" /> nabla [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/zeta.png" /> zeta [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/varpi.png" /> varpi [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Gamma.png" /> Gamma [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/hbar.png" /> hbar [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/eta.png" /> eta [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/rho.png" /> rho [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Delta.png" /> Delta [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/ddagger.png" /> ddagger [Esc]</font></td></tr>
+<tr><td><font size=-1><img width="16" height="16" src="img/symbols/theta.png" /> theta [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/varrho.png" /> varrho [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/_Theta.png" /> Theta [Esc]</font></td><td><font size=-1><img width="16" height="16" src="img/symbols/paragraph.png" /> paragraph [Esc]</font></td></tr>
+</table>
+<br>
+
+<a name="functions"></a>
+<br><font color="#3399cc">Functions<br></font><br>
+
+Toolbar is activated by [F4]. Use cursor keys and <br>
+[Enter] to select symbol. Press [F1] for first tab.<br><br>
+
+<img align="bottom" alt="Operators" height="179" src="img/Ov4.png" title="Operators" width="464"><br><br>
+
+Functions can also be input from keyboard.<br>
+For example sin() can be inserted by typing <font color=red size=-1>sin(</font>.<br><br>
+
+<table border="0" cellpadding="6" cellspacing="0"><tr>
+<td ><a onclick="return popitup('functions/ln.html')" /><font color=red size=-1>ln(x)</font></a><font size=-1> - natural logarithm</font></td></tr>
+<td ><a onclick="return popitup('functions/log10.html')" /><font color=red size=-1>log10(x)</font></a><font size=-1> - base 10 logarithm</font></td></tr>
+<td ><a onclick="return popitup('functions/exp.html')" /><font color=red size=-1>exp(x)</font></a><font size=-1> - exponential</font></td></tr>
+</tr></table>
+
+<br>Trigonometric functions<br>
+
+<table border="0" cellpadding="6" cellspacing="0">
+<td ><a onclick="return popitup('functions/sin.html')" /><font color=red size=-1>sin(x)</font></a><font size=-1> - sine</font></td></tr>
+<td ><a onclick="return popitup('functions/cos.html')" /><font color=red size=-1>cos(x)</font></a><font size=-1> - cosine</font></td></tr>
+<td ><a onclick="return popitup('functions/tan.html')" /><font color=red size=-1>tan(x)</font></a><font size=-1> - tangent</font></td></tr>
+<td ><a onclick="return popitup('functions/asin.html')" /><font color=red size=-1>asin(x)</font></a><font size=-1> - arc sinus</font></td></tr>
+<td ><a onclick="return popitup('functions/acos.html')" /><font color=red size=-1>acos(x)</font></a><font size=-1> - arc cosine</font></td></tr>
+<td ><a onclick="return popitup('functions/atan.html')" /><font color=red size=-1>atan(x)</font></a><font size=-1> - arc tangent</font></td></tr>
+<td ><a onclick="return popitup('functions/sinh.html')" /><font color=red size=-1>sinh(x)</font></a><font size=-1> - hyperbolic sine</font></td></tr>
+<td ><a onclick="return popitup('functions/cosh.html')" /><font color=red size=-1>cosh(x)</font></a><font size=-1> - hyperbolic cosine</font></td></tr>
+<td ><a onclick="return popitup('functions/tanh.html')" /><font color=red size=-1>tanh(x)</font></a><font size=-1> - hyperbolic tangent</font></td></tr>
+<td ><a onclick="return popitup('functions/asinh.html')" /><font color=red size=-1>asinh(x)</font></a><font size=-1> - hyperbolic arc sine</font></td></tr>
+<td ><a onclick="return popitup('functions/acosh.html')" /><font color=red size=-1>acosh(x)</font></a><font size=-1> - hyperbolic arc cosine</font></td></tr>
+<td ><a onclick="return popitup('functions/atanh.html')" /><font color=red size=-1>atanh(x)</font></a><font size=-1> - hyperbolic arc tangent</font></td></tr>
+</table>
+
+<br>Statistic functions<br>
+<table border="0" cellpadding="6" cellspacing="0">
+<td ><a onclick="return popitup('functions/corrcoef.html')" /><font color=red size=-1>corrcoef(x, y)</font></a><font size=-1> - correlation coefficient</font></td></tr>
+<td ><a onclick="return popitup('functions/cov.html')" /><font color=red size=-1>cov(x, y)</font></a><font size=-1> - covariance</font></td></tr>
+<td ><a onclick="return popitup('functions/median.html')" /><font color=red size=-1>median(a)</font></a><font size=-1> - median value</font></td></tr>
+<td ><a onclick="return popitup('functions/mean.html')" /><font color=red size=-1>mean(a)</font></a><font size=-1> - mean value</font></td></tr>
+<td ><a onclick="return popitup('functions/std.html')" /><font color=red size=-1>std(a)</font></a><font size=-1> - standard deviation</font></td></tr>
+<td ><a onclick="return popitup('functions/var.html')" /><font color=red size=-1>var(a)</font></a><font size=-1> - variance</font></td></tr>
+<td ><a onclick="return popitup('functions/cov.html')" /><font color=red size=-1>cov(a)</font></a><font size=-1> - covariance</font></td></tr>
+</table>
+
+<br>Matrix Operations<br>
+<table border="0" cellpadding="6" cellspacing="0">
+<td ><a onclick="return popitup('functions/eye.html')" /><font color=red size=-1>eye(n, m)</font></a><font size=-1> - create n by m identity matrix</font></td></tr>
+<td ><a onclick="return popitup('functions/transpose.html')" /><font color=red size=-1>transpose(a)</font></a><font size=-1> - transpose a matrix</font></td></tr>
+<td ><a onclick="return popitup('functions/inverse.html')" /><font color=red size=-1>inverse(a)</font></a><font size=-1> - invert a square matrix</font></td></tr>
+<td ><a onclick="return popitup('functions/det.html')" /><font color=red size=-1>det(a)</font></a><font size=-1> - determinant of a matrix</font></td></tr>
+<td ><a onclick="return popitup('functions/min.html')" /><font color=red size=-1>min(a)</font></a><font size=-1> - minimum value in a matrix</font></td></tr>
+<td ><a onclick="return popitup('functions/max.html')" /><font color=red size=-1>max(a)</font></a><font size=-1> - maximum value in a matrix</font></td></tr>
+<td ><a onclick="return popitup('functions/rows.html')" /><font color=red size=-1>rows(a)</font></a><font size=-1> - returns number of rows</font></td></tr>
+<td ><a onclick="return popitup('functions/columns.html')" /><font color=red size=-1>columns(a)</font></a><font size=-1> - returns number of columns</font></td></tr>
+</table>
+
+<br>Graphic Operations<br>
+<table border="0" cellpadding="6" cellspacing="0">
+<td ><a onclick="return popitup('functions/plot.html')" /><font color=red size=-1>plot(x, y)</font></a><font size=-1> - 2D plot</font></td></tr>
+<td ><a onclick="return popitup('functions/meshgrid.html')" /><font color=red size=-1>meshgrid(x, y)</font></a><font size=-1> - grid for 3D mesh</font></td></tr>
+<td ><a onclick="return popitup('functions/mesh.html')" /><font color=red size=-1>mesh(x, y, z)</font></a><font size=-1> - 3D mesh</font></td></tr>
+<td ><font color=red size=-1>title "s"</font><font size=-1> - title of a figure</font></td></tr>
+<td ><font color=red size=-1>xlabel "s"</font><font size=-1> - x-axis description</font></td></tr>
+<td ><font color=red size=-1>ylabel "s"</font><font size=-1> - y-axis description</font></td></tr>
+<td ><font color=red size=-1>zlabel "s"</font><font size=-1> - z-axis description</font></td></tr>
+<td ><font color=red size=-1>print -deps "s"</font><font size=-1> - print to .eps file</font></td></tr>
+<td ><font color=red size=-1>print -dpng "s"</font><font size=-1> - print to .png file</font></td></tr>
+<td ><font color=red size=-1>figure</font><font size=-1> - new figure</font></td></tr>
+</table>
+
+<br>Miscellaneous Functions<br>
+<table border="0" cellpadding="6" cellspacing="0">
+<td ><a onclick="return popitup('functions/mod.html')" /><font color=red size=-1>mod(n, m)</font></a><font size=-1> - modulo</font></td></tr>
+<td ><a onclick="return popitup('functions/floor.html')" /><font color=red size=-1>floor(x)</font></a><font size=-1> - round down to whole number</font></td></tr>
+<td ><a onclick="return popitup('functions/ceil.html')" /><font color=red size=-1>ceil(x)</font></a><font size=-1> - round up to next whole number</font></td></tr>
+<td ><a onclick="return popitup('functions/abs.html')" /><font color=red size=-1>abs(x)</font></a><font size=-1> - absolute value</font></td></tr>
+<td ><a onclick="return popitup('functions/sign.html')" /><font color=red size=-1>sign(x)</font></a><font size=-1> - sign of x</font></td></tr>
+<td ><a onclick="return popitup('functions/gcd.html')" /><font color=red size=-1>gcd(x, y)</font></a><font size=-1> - greatest common divisor</font></td></tr>
+<td ><a onclick="return popitup('functions/lcm.html')" /><font color=red size=-1>lcm(x, y)</font></a><font size=-1> - least common multiple</font></td></tr>
+<td ><a onclick="return popitup('functions/rand.html')" /><font color=red size=-1>rand()</font></a><font size=-1> - random number</font></td></tr>
+</table>
+<br><br>
+
+<a name="copytex"></a>
+<font color="#3399cc"><b>Copy TeX to wiki<br></b></font><br>
+
+Wiki servers such as wikipedia.org allows math formulas in TeX format.<br><br>
+
+To add formula in wiki, copy TeX including the math xml tag:
+<blockquote>
+<font color=red>&lt;math&gt;</font>TeX formula<font color=red>&lt;/math&gt;</font>
+</blockquote>
+<br>
+
+<a name="pdflatex"></a>
+<font color="#3399cc"><b>Create pdf from TeX<br></b></font><br>
+
+Install latex package such as <font color=red>tetex-latex-3.0</font>.<br><br>
+
+Run following command on exported tex file on the command line:
+<blockquote>
+<font color=red>pdflatex file.tex</font>
+</blockquote>
+<br>
+
+<a name="encoding"></a>
+<font color="#3399cc"><b>Note on file encoding<br></b></font><br>
+
+Mirai Documents are xml documents and use UTF-8 encoding.<br><br>
+
+LaTeX Documents can be stored either default encoding or UTF-8.<br><br>
+
+For HTML and Plain Text default system encoding is used.<br>
+Encoding can be changed by adding java option to start script.
+<blockquote>
+<font color=red>-Dfile.encoding=UTF-8</font>
+</blockquote>
+
+List of availabe encodings can be found on following site:<br>
+<a href="http://java.sun.com/j2se/1.5.0/docs/guide/intl/encoding.doc.html" rel="nofollow" target="r1_blank"
+>http://java.sun.com/j2se/1.5.0/docs/guide/intl/encoding.doc.html</a><br><br>
+
+
+<font size=-1>Back to <a href="index.html">Index</a></font><br><br>
+</body></html>
